@@ -2,4 +2,4 @@
 ansible_become: true
 ansible_become_method: enable
 ansible_connection: network_cli
-ansible_network_os: cisco.asa.asa
+ansible_network_os: asa
