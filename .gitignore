@@ -1,3 +1,4 @@
 ansible_ssh_key
+ansible_ssh_key.pub
 .gitignore
 venv/
