@@ -1,0 +1,12 @@
+---
+- name: get configs
+  hosts: network
+  gather_facts: false
+  tasks:
+  - name: Write configs to repo
+    include_role:
+      name: "{{ item }}"
+    loop:
+      - config_backup_eos
+      - config_backup_ios
+      - config_backup_asa

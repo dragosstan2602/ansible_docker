@@ -1,0 +1,13 @@
+---
+- name: Get Config from Ciscos
+  ios_command:
+    commands:
+      - show running-config
+  register: output
+  when: ansible_network_os == 'ios'
+
+- name: Write config to file in ./configs/
+  copy:
+    content: "{{ output.stdout_lines[0] | join('\n') }}"
+    dest: "./HomeLabConfigs/{{ inventory_hostname }}.txt"
+  when: ansible_network_os == 'ios'

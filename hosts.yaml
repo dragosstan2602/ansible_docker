@@ -1,0 +1,39 @@
+---
+firewalls:
+  hosts:
+    vASA-FW01:
+      ansible_host: 192.168.0.52
+
+leafs:
+  hosts:
+    vEOS-LSW01:
+    vEOS-LSW02:
+    vEOS-LSW03:
+
+spines:
+  hosts:
+    vEOS-SSW01:
+      ansible_host: 192.168.0.25
+    vEOS-SSW02:
+      ansible_host: 192.168.0.26
+
+routers:
+  hosts:
+    IOS-RT01:
+      ansible_host: 192.168.0.53
+
+eos_devices:
+  children:
+    leafs:
+    spines:
+
+network:
+  children:
+    leafs:
+    spines:
+    routers:
+    firewalls:
+
+datacenter:
+  children:
+    network:
