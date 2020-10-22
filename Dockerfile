@@ -13,9 +13,9 @@ RUN chmod -R 600 /root/.ssh/config
 # CONFIGURE ANSIBLE PLAYBOOKS
 WORKDIR /home/
 RUN git clone git@github.com:dragosstan2602/ansible_docker.git
+RUN git clone git@github.com:dragosstan2602/HomeLabConfigs.git
 
-WORKDIR /home/ansible_docker
-RUN chmod +x full_run.sh
+RUN chmod +x ansible_docker/full_run.sh
 
 # RUN ANSIBLE PLAYBOOKS
-CMD ["./full_run.sh"]
+CMD ["./ansible_docker/full_run.sh"]
