@@ -9,5 +9,5 @@
 - name: Write config to file in ./configs/
   copy:
     content: "{{ output.stdout_lines[0] | join('\n') }}"
-    dest: "./HomeLabConfigs/{{ inventory_hostname }}.txt"
+    dest: "/home/HomeLabConfigs/{{ inventory_hostname }}.txt"
   when: ansible_network_os == 'ios'
